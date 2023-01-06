@@ -13,6 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
+import java.util.List;
 
 public class C01_HandlingDropDownMenu {
 
@@ -90,6 +91,14 @@ public class C01_HandlingDropDownMenu {
         String actualDropDownMenuStr =select.getFirstSelectedOption().getText();
 
         Assert.assertEquals(expectedDropDownMenuStr,actualDropDownMenuStr);
+
+        // verify that there are 28 options in dropdownMenu
+
+        int expectedOptonsNumber = 28;
+        List<WebElement> optionList =select.getOptions();
+        int actualOptionsNumber = optionList.size();
+
+        Assert.assertEquals(expectedOptonsNumber,actualOptionsNumber);
 
 
     }
